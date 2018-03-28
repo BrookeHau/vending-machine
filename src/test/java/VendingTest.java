@@ -11,12 +11,33 @@ public class VendingTest {
 		String result = vm.display();
 		assertThat(result, is("INSERT COIN"));
 	}
+	@Test
+	public void knowACoinIsADime() {
+		Coin coin = new Coin(.004, 0.5);
+		String type = coin.type();
+		assertThat(type, is("Dime"));
+		
+	}
 	
 	@Test
-	public void knowACoinIsAPenny() {
+	public void knowACoinIsANickel() {
 		Coin coin = new Coin(.005, 1);
 		String type = coin.type();
 		assertThat(type, is("Nickel"));
 		
+	}
+	
+	@Test
+	public void knowACoinIsAQuarter() {
+		Coin coin = new Coin(.006, 1.5);
+		String type = coin.type();
+		assertThat(type, is("Quarter"));	
+	}
+	
+	@Test
+	public void knowACoinIsAPenny() {
+		Coin coin = new Coin(.0005, 0.7);
+		String type = coin.type();
+		assertThat(type, is("Invalid Coin, check coin return"));	
 	}
 }
