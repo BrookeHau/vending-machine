@@ -1,4 +1,3 @@
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -72,4 +71,23 @@ public class VendingTest {
 		double bal = vm.balance();
 		assertThat(bal, is(0.0));
 	}
+	
+	@Test
+	public void addProductToVendingOrder() {
+		Product product = new Product("Chips", 1.50);
+		VendingMachine vm = new VendingMachine();
+		vm.addProduct(product);
+		String check = vm.getProductName();
+		assertThat(check, is("Chips"));
+	}
+	
+	@Test
+	public void getProductPrice() {
+		Product product = new Product("Chips", 1.50);
+		VendingMachine vm = new VendingMachine();
+		vm.addProduct(product);
+		double check = vm.getProductPrice();
+		assertThat(check, is(1.50));
+	}
+	
 }
