@@ -52,4 +52,24 @@ public class VendingTest {
 		double result = vm.balance();
 		assertThat(result, is(0.30));	
 	}
+	
+	@Test
+	public void addMoreCoins() {
+		VendingMachine vm = new VendingMachine();
+		Coin coin = new Coin(.005, 1);
+		Coin coin2 = new Coin(.006, 1.5);
+		Coin coin3 = new Coin(.006, 1.5);
+		vm.addCoin(coin, coin2, coin3);
+		double result = vm.balance();
+		assertThat(result, is(0.55));	
+	}
+	
+	@Test 
+	public void shouldDisplayZero() {
+		VendingMachine vm = new VendingMachine();
+		Coin coin = new Coin(.003, 1.5);
+		vm.addCoin(coin);
+		double bal = vm.balance();
+		assertThat(bal, is(0.0));
+	}
 }
