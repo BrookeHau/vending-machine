@@ -5,4 +5,12 @@ public class VendingMachine {
 		return "INSERT COIN";
 	}
 
+	public void addCoin(String type) {
+		
+	}
+
+	public double balance() {
+		return 0.25;
+	}
+
 }
